@@ -47,15 +47,15 @@ if '--np' in sys.argv:
       for index, weight in sorted(index_weight.items(), key=lambda x:x[0]):
         ys.append( weight ) 
       Ys.append(ys)
-      Xs.append(day / 25000)
+      Xs.append(day /25000)
     else:
       yst = []
       for index, weight in sorted(index_weight.items(), key=lambda x:x[0]):
         yst.append( weight ) 
       Yst.append(yst)
-      Xst.append(day / 25000 )
+      Xst.append(day /25000 )
 
-  Xs, Ys, Xst, Yst = map(lambda x:np.array(x, dtype=float), [Xs, Ys, Xst, Ys])
+  Xs, Ys, Xst, Yst = map(lambda x:np.array(x, dtype=float), [Xs, Ys, Xst, Yst])
   print(Ys.shape)
 
   open('dataset.pkl', 'wb').write( pickle.dumps( (Xs, Ys, Xst, Yst) ) )
