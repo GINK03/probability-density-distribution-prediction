@@ -25,3 +25,10 @@ for i in range(SIZE):
 ## 問題設定 1.
 ある日のデータが何らの原因で欠けてしまった場合、周りの傾向を学習することで、欠けてしまったログから予想を試みます  
 
+<div align="center">
+  <img width="100%" src="https://user-images.githubusercontent.com/4949982/36847342-573dfaea-1da1-11e8-8267-96de15743e7b.png">
+</div>
+
+ところどころ、データが欠損しています。  
+
+これに対してDeepLearningのモデルで欠けた分布の予想をしていきましょう  
