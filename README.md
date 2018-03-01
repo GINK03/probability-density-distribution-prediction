@@ -10,3 +10,14 @@
 
 古典的なベイズでも可能ですが、ディープラーニングを用いて、KL距離、mean squre error距離などの距離関数で損失を決定して、分布を仮定せず（ビッグデータ流儀）、直接高次元の密度関数を予想可能であることを示したいと思います  
 
+## 例えばこのような分布を仮定
+正規分布２つから導から導かれる頻度  
+```python
+import numpy as np
+
+SIZE = 25000
+for i in range(SIZE):
+  sample1 = np.random.normal(loc=-2*np.sin(i/10), scale=1, size=10000)
+  sample2 = np.random.normal(loc=5*np.cos(i/10), scale=2, size=30000)
+```
+微妙に距離がある２つの分布から構成されており、i(時系列)でlocのパラメータが変化し、支配的な正規分布と非支配的な分布が入り交じる  
