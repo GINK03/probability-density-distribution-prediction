@@ -1,6 +1,6 @@
 import numpy as np
 
-SIZE = 500
+SIZE = 5000
 obs_freq = {}
 for i in range(SIZE):
   sample1 = np.random.normal(loc=-2*np.sin(i/10), scale=1, size=10000)
@@ -14,5 +14,8 @@ for i in range(SIZE):
       obs_freq[obs] = [0]*SIZE
     obs_freq[obs][i] += 1
 
+vs = []
+for inv in list(map(list, zip(*list([val for obs, val in sorted(obs_freq.items(), key=lambda x:x[0])])))):
+  vs.append( max(inv) )
 for obs, freq in sorted(obs_freq.items(), key=lambda x:x[0]):
-  print(obs, ' '.join(map(str, freq)))
+  print(obs, ' '.join(map(str, [ f/vs[index] for index, f in enumerate(freq)])))
