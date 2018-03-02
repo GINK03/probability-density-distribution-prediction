@@ -58,10 +58,14 @@ TODO
 ## 問題設定2.　異常値検知を行う  
 検定の話ですが、一般的に95%信頼区間に入るかどうかがよく使われる手法です。  
 
-信頼区間は確率密度関数が判明している必要がありますが、複雑な分布を本質的にもつようなものに当て推量で分布を仮定することが、事前に知識を外挿していることと等価であり、やらなくて済むならやらないほうがいいでしょう。  
+信頼区間は確率密度関数が判明している必要がありますが、複雑な分布を本質的にもつようなものに当て推量で分布を仮定することが、事前に知識を外挿していることと等価であり、やらなくて済むならやらないほうがいいでしょう（何らかの方法でサンプリングする必要があります）。  
 <div align="center">
   <img width="400px" src="https://user-images.githubusercontent.com/4949982/36882442-4ef29b90-1e17-11e8-94c4-696f849a40c4.png">
 </div>
+<div align="center">
+  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36882948-13fc36a6-1e1a-11e8-96e4-f3467a26f63f.png">
+</div>
+この時、
 
 ## 参考文献
 - [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
