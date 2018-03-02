@@ -47,6 +47,7 @@ for i in range(SIZE):
 ディープラーニングはサンプリング数が十分に多ければ、真の分布を仮説せずとも、直接、求めることができることがわかりました。
 
 なお、このときに用いた損失関数は、Kullback-Leibler情報量 + 平均誤差の混合した損失関数です  
+
 コードで表すとこんな感じです  
 ```python
 def custom_objective(y_true, y_pred):
@@ -58,7 +59,7 @@ def custom_objective(y_true, y_pred):
 ```
 数式で表現すると以下のようになります  
 <div align="center">
-  <img width="300px" src="https://user-images.githubusercontent.com/4949982/36884095-ec1bd6a2-1e21-11e8-9e62-7cb9ec35c81a.png">
+  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36884095-ec1bd6a2-1e21-11e8-9e62-7cb9ec35c81a.png">
 </div>
 k:定数,0.001と今回は設定  
 これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　  
