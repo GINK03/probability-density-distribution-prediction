@@ -1,4 +1,4 @@
-# Deep Learningによる無限次元分布推定
+# Deep Learningによる分布推定
 
 ## 例えばこのような連続する事象の確率分布がある
 <div align="center">
