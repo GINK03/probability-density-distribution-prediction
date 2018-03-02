@@ -72,7 +72,7 @@ $ python3 make-dataset.py --invert #　dump.txtを転地する
 $ python3 make-dataset.py --np # numpyのアレイにする
 
 $ python3 unlimited-dimention-spectre.py --train #学習
-$ python3 unlimited-dimention-spectre.py --expect #抜けた穴の予想
+$ python3 unlimited-dimention-spectre.py --predict #抜けた穴の予想
 ```
 
 ## 問題設定2.　異常値検知を行う  
