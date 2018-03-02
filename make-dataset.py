@@ -47,13 +47,13 @@ if '--np' in sys.argv:
       for index, weight in sorted(index_weight.items(), key=lambda x:x[0]):
         ys.append( weight ) 
       Ys.append(ys)
-      Xs.append(day /25000)
+      Xs.append( [float(b) for b in list(f'{day:020b}')] )
     else:
       yst = []
       for index, weight in sorted(index_weight.items(), key=lambda x:x[0]):
         yst.append( weight ) 
       Yst.append(yst)
-      Xst.append(day /25000 )
+      Xst.append( [float(b) for b in list(f'{day:020b}')] )
 
   Xs, Ys, Xst, Yst = map(lambda x:np.array(x, dtype=float), [Xs, Ys, Xst, Yst])
   print(Ys.shape)
