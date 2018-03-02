@@ -56,9 +56,12 @@ def custom_objective(y_true, y_pred):
   kullback_leibler = K.sum(y_true_clip * K.log(y_true_clip / y_pred_clip), axis=-1)
   return mse + kullback_leibler / 1000.0
 ```
-数式で表現すると以下のようになります
-TODO
-これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　
+数式で表現すると以下のようになります  
+<div align="center">
+  <img width="300px" src="https://user-images.githubusercontent.com/4949982/36884095-ec1bd6a2-1e21-11e8-9e62-7cb9ec35c81a.png">
+</div>
+k:定数,0.001と今回は設定  
+これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　  
 
 ## 問題設定2.　異常値検知を行う  
 検定の話ですが、一般的に95%信頼区間に入るかどうかがよく使われる手法です。  
