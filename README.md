@@ -87,6 +87,9 @@ k:定数,0.001と今回は設定
 $ python3 distgen.py > dump.txt # 幾つかの分布からランダムに値をサンプリング
 $ python3 make-dataset.py --invert #　dump.txtを転地する
 $ python3 make-dataset.py --np # numpyのアレイにする
+
+$ python3 unlimited-dimention-spectre.py --train #学習
+$ python3 unlimited-dimention-spectre.py --future #未来の100系列を予想
 ```
 
 ## まとめ
