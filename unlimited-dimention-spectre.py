@@ -58,3 +58,33 @@ if '--train' in sys.argv:
     model.fit(Xs, Ys, epochs=1, validation_data=(Xst, Yst), callbacks=[batch_callback])
     
     model.save_weights(f'models/valloss={buff["val_loss"]:.09f}_loss={buff["loss"]:.09f}_{i:09d}.h5')
+
+if '--predict' in sys.argv:
+
+  Xs = []
+  for i in range(25000):
+    xs = [float(b) for b in list(f'{i:020b}')]
+    Xs.append(xs)
+  Xs = np.array(Xs, dtype=float)
+   
+  model.load_weights( sorted(glob.glob('./models/*')).pop(0) )
+
+  yp = model.predict( Xs )
+  for y in yp.T.tolist():
+    line = ' '.join( map(str, y) )
+    print(line)
+
+if '--future' in sys.argv:
+  Xs = []
+  for i in range(25000, 25100):
+    xs = [float(b) for b in list(f'{i:020b}')]
+    Xs.append(xs)
+  Xs = np.array(Xs, dtype=float)
+   
+  model.load_weights( sorted(glob.glob('./models/*')).pop(0) )
+
+  yp = model.predict( Xs )
+  for y in yp.T.tolist():
+    line = ' '.join( map(str, y) )
+    print(line)
+
