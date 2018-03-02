@@ -65,7 +65,7 @@ TODO
 <div align="center">
   <img width="400px" src="https://user-images.githubusercontent.com/4949982/36882948-13fc36a6-1e1a-11e8-96e4-f3467a26f63f.png">
 </div>
-この時、
+この時、この分布が仮に確率分布と定義できるようなサンプリングをした場合、異常値の検出は、あるサンプルした点から95%の全体の面積を占める範囲外であるとき、と考えられれそうです。（これはディープラーニングの出力値が、離散値なので上から順に足し算、下から順に足し算でかんたんに求まります）
 
 ## 参考文献
 - [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
