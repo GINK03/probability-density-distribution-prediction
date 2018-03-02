@@ -39,3 +39,16 @@ for i in range(SIZE):
 
 このように周辺分布となる非常に細かいところは欠けでしまいました（多分活性化関数の工夫の次第です）が、おおよそ再現できることがわかりました。  
 
+ディープラーニングはサンプリング数が十分に多ければ、真の分布を仮説せずとも、直接、求めることができることがわかりました。
+
+なお、このときに用いた損失関数は、Kullback-Leibler情報量 + 平均誤差の混合した損失関数です  
+コードで表すとこんな感じです  
+```python
+def custom_objective(y_true, y_pred):
+  mse = K.mean(K.square(y_true-y_pred), axis=-1)
+  y_true_clip = K.clip(y_true, K.epsilon(), 1)
+  y_pred_clip = K.clip(y_pred, K.epsilon(), 1)
+  kullback_leibler = K.sum(y_true_clip * K.log(y_true_clip / y_pred_clip), axis=-1)
+  return mse + kullback_leibler / 1000.0
+```
+## 
