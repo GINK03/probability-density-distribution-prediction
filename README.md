@@ -53,6 +53,8 @@ def custom_objective(y_true, y_pred):
 ```
 数式で表現すると以下のようになります
 
-これは、Image to Image　の論文と、この発表に参考にしました（有効性の検証は別途必要でしょう）　　
+これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　
 
-## 
+## 参考文献
+- [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
+- [2] [確率分布間の 距離推定 ： 機械学習分野 に お け る 最新動向(https://www.jstage.jst.go.jp/article/jsiamt/23/3/23_KJ00008829126/_pdf)
