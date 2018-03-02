@@ -86,7 +86,9 @@ k:定数,0.001と今回は設定
 - 何か分布を仮定しない→知識の外挿なしなので、全く未知のこと、ドメイン知識がないことをやろうとするときなど便利です  
 - その代わり完全な分布を各時系列などで構築している必要があり、これはどのようにデータを集めるかが鍵なきがします
 - そこまでやる必要がないよってときには、prophetやbayesがおすすめです
+- そもそも、DeepLearningは無限の重ね合わせによりガウス過程を構築していることと等価[3]（これは感覚的に理解できます）ので、こういったタスクに実は向いているのではないでしょうか。
 
 ## 参考文献
 - [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
 - [2] [確率分布間の距離推定：機械学習分野における最新動向](https://www.jstage.jst.go.jp/article/jsiamt/23/3/23_KJ00008829126/_pdf)
+- [3] [深層学習はガウス過程](http://machine-learning.hatenablog.com/entry/2018/01/13/142612)
