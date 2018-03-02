@@ -48,6 +48,7 @@ for i in range(SIZE):
 
 なお、このときに用いた損失関数は、Kullback-Leibler情報量 + 平均誤差の混合した損失関数です  
 
+
 コードで表すとこんな感じです  
 ```python
 def custom_objective(y_true, y_pred):
@@ -63,6 +64,16 @@ def custom_objective(y_true, y_pred):
 </div>
 k:定数,0.001と今回は設定  
 これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　  
+
+### 操作方法
+```console
+$ python3 distgen.py > dump.txt # 幾つかの分布からランダムに値をサンプリング
+$ python3 make-dataset.py --invert #　dump.txtを転地する
+$ python3 make-dataset.py --np # numpyのアレイにする
+
+$ python3 unlimited-dimention-spectre.py --train #学習
+$ python3 unlimited-dimention-spectre.py --expect #抜けた穴の予想
+```
 
 ## 問題設定2.　異常値検知を行う  
 検定の話ですが、一般的に（95%などの）信頼区間に入るかどうかがよく使われる手法です。  
