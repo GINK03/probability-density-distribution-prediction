@@ -27,6 +27,28 @@ for i in range(SIZE):
 ```
 微妙に距離がある２つの分布から構成されており、i(時系列)でlocのパラメータが変化し、支配的な正規分布と非支配的な分布が入りまじります    
 
+## 時刻tから分布Dを予想するための距離関数
+
+用いた損失関数は、Kullback-Leibler情報量 + 平均誤差の混合した損失関数です  
+
+確率分布のような図が、問題なく各時間tにおいてDが定義できるので、十分な
+
+コードで表すとこんな感じです  
+```python
+def custom_objective(y_true, y_pred):
+  mse = K.mean(K.square(y_true-y_pred), axis=-1)
+  y_true_clip = K.clip(y_true, K.epsilon(), 1)
+  y_pred_clip = K.clip(y_pred, K.epsilon(), 1)
+  kullback_leibler = K.sum(y_true_clip * K.log(y_true_clip / y_pred_clip), axis=-1)
+  return mse + kullback_leibler / 1000.0
+```
+数式で表現すると以下のようになります  
+<div align="center">
+  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36884095-ec1bd6a2-1e21-11e8-9e62-7cb9ec35c81a.png">
+</div>
+k:定数,0.001と今回は設定  
+これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　  
+
 ## 問題設定1. 欠けた部分から、もとの分布を予想する  
 ある日のデータが何らの原因で欠けてしまった場合、周りの傾向を学習することで、欠けてしまったログから予想を試みます  
 
@@ -42,28 +64,9 @@ for i in range(SIZE):
   <img width="100%" src="https://user-images.githubusercontent.com/4949982/36879007-f460eedc-1e04-11e8-839a-887280cba7c0.png">
 </div>
 
-このように周辺分布となる非常に細かいところは欠けでしまいました（多分活性化関数の工夫の次第です）が、おおよそ再現できることがわかりました。  
+このように周辺の値が非常に小さくなる分布となる非常に細かいところは欠けでしまいました（多分活性化関数の工夫の次第です）が、おおよそ再現できることがわかりました。  
 
-ディープラーニングはサンプリング数が十分に多ければ、真の分布を仮説せずとも、直接、求めることができることがわかりました。
-
-なお、このときに用いた損失関数は、Kullback-Leibler情報量 + 平均誤差の混合した損失関数です  
-
-
-コードで表すとこんな感じです  
-```python
-def custom_objective(y_true, y_pred):
-  mse = K.mean(K.square(y_true-y_pred), axis=-1)
-  y_true_clip = K.clip(y_true, K.epsilon(), 1)
-  y_pred_clip = K.clip(y_pred, K.epsilon(), 1)
-  kullback_leibler = K.sum(y_true_clip * K.log(y_true_clip / y_pred_clip), axis=-1)
-  return mse + kullback_leibler / 1000.0
-```
-数式で表現すると以下のようになります  
-<div align="center">
-  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36884095-ec1bd6a2-1e21-11e8-9e62-7cb9ec35c81a.png">
-</div>
-k:定数,0.001と今回は設定  
-これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　  
+ディープラーニングはサンプリング数が十分に多ければ、（正規分布、ベータ分布などの）分布を仮説せずとも、直接、求めることができることがわかりました。
 
 ### 操作方法
 ```console
