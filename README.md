@@ -52,8 +52,10 @@ def custom_objective(y_true, y_pred):
   return mse + kullback_leibler / 1000.0
 ```
 数式で表現すると以下のようになります
-
+TODO
 これは、Image to Image[1]の論文と、この発表[2]に参考にしました（有効性の検証は別途必要でしょう）　　
+
+## 問題設定 2.　異常値検知を行う
 
 ## 参考文献
 - [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
