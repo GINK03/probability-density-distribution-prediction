@@ -57,4 +57,4 @@ def custom_objective(y_true, y_pred):
 
 ## 参考文献
 - [1] [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004.pdf)
-- [2] [確率分布間の 距離推定 ： 機械学習分野 に お け る 最新動向(https://www.jstage.jst.go.jp/article/jsiamt/23/3/23_KJ00008829126/_pdf)
+- [2] [確率分布間の距離推定：機械学習分野における最新動向(https://www.jstage.jst.go.jp/article/jsiamt/23/3/23_KJ00008829126/_pdf)
