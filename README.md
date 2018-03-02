@@ -51,4 +51,8 @@ def custom_objective(y_true, y_pred):
   kullback_leibler = K.sum(y_true_clip * K.log(y_true_clip / y_pred_clip), axis=-1)
   return mse + kullback_leibler / 1000.0
 ```
+数式で表現すると以下のようになります
+
+これは、Image to Image　の論文と、この発表に参考にしました（有効性の検証は別途必要でしょう）　　
+
 ## 
