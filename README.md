@@ -60,7 +60,7 @@ TODO
 
 信頼区間は確率密度関数が判明している必要がありますが、複雑な分布を本質的にもつようなものに当て推量で分布を仮定することが、事前に知識を外挿していることと等価であり、やらなくて済むならやらないほうがいいでしょう（何らかの方法でサンプリングする必要があります）。  
 <div align="center">
-  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36882442-4ef29b90-1e17-11e8-94c4-696f849a40c4.png">
+  <img width="400px" src="https://user-images.githubusercontent.com/4949982/36883467-e29e14b8-1e1d-11e8-9f61-4cb9acc3f954.png">
 </div>
 <div align="center">
   <img width="400px" src="https://user-images.githubusercontent.com/4949982/36883133-6244b530-1e1b-11e8-9b89-5b3997570bfb.png">
